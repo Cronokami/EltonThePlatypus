@@ -36,5 +36,11 @@ public class BasicRocket : MonoBehaviour
         Debug.Log(angle);
         
         transform.Rotate(0, 0,  angle * maneuverabilityLerp);
+        rb2d.velocity = transform.up * speed * Time.deltaTime;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }
